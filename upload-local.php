@@ -90,6 +90,7 @@ if (!empty($_FILES)) {
             //echo $id; // Manda el ID al FrontEnd(JS)
             echo $name;
         }
+        
     }
 }
 
