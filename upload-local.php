@@ -50,7 +50,7 @@ function id_value($directory) {
 
     closedir($dir); // Cierro la carpeta
 
-    return $temp_id_file; // Devuelvo el ID
+    return $new_value; // Devuelvo el ID
 }
 
 ///////////////////////////////////////////////////
@@ -90,7 +90,7 @@ if (!empty($_FILES)) {
             //echo $id; // Manda el ID al FrontEnd(JS)
             echo $name;
         }
-        
+
     }
 }
 
