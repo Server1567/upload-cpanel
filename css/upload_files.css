@@ -1,0 +1,133 @@
+body {
+	background-color: #effaff;
+	font-family: "Lato";
+}
+
+h2 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+h3 {
+	font-family: "Lato", Garamond, sans-serif;
+}
+
+/* Section A */
+
+.input-label {
+	background-color: #2AAEF0;
+	color: white;
+	padding: 10px;
+	transition: 0.3s;
+	border-radius: 5px;
+}
+
+.url {
+	width: 75%;
+	padding: 5px;
+	border: 5px solid #2AAEF0;
+	background: none;
+}
+
+.url:focus {
+	border: 5px solid #2AAEF0;
+}
+
+.upload-url {
+	display: inline-block;
+	padding: 5px;
+	background: #2AAEF0;
+	color: white;
+	margin-left: -9px;
+	border: 5px solid #2AAEF0;
+	border-radius: 0px 30px 30px 0px;
+}
+
+.upload-url:hover {
+	background: #196388;
+	border: 5px solid #196388;
+}
+
+.upload-url:active {
+	background: #196388;
+	border: 5px solid #196388;
+	box-shadow: none;
+}
+
+.input-label:hover {
+	background-color: #196388;
+	cursor: pointer;
+}
+
+.progress {
+	border-radius: 10px;
+}
+
+#fileInput {
+	display: none;
+}
+
+#files {
+	background: white;
+	width: 100%;
+	padding: 10px 10px 5px 10px;
+	border-radius: 5px;
+}
+
+.archivo {
+	background: #effaff;
+	margin-bottom: 5px;
+}
+
+.nombre {
+	background: #2AAEF0;
+	width: 90px;
+	padding: 7px;
+	color: white;
+	display: inline-block;
+	text-align: center;
+	justify-content: center;
+}
+
+span .nombre-txt {
+	text-align: center;
+	display: inline-block;
+}
+
+.datos {
+	display: inline-block;
+	width: 85%;
+}
+
+.datos .name-file {
+	margin-left: 25px;
+	color: #212529;
+	font-weight: bold;
+}
+
+.datos .progress-file {
+	margin-left: 130px;
+	font-weight: bold;
+}
+
+.datos .length-file {
+	margin-left: 25px;
+	color: #212529;
+	font-weight: bold;	
+	float: right;
+}
+
+/* Section B */
+
+#view {
+	background: white;
+	width: 100%;
+	padding: 10px;
+	box-shadow: 1px 1px 10px lightgray;
+	border-radius: 5px;
+	word-wrap: break-word;
+}
+
+#search-rango {
+	border-radius: 100%;
+}
