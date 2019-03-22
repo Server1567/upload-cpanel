@@ -37,8 +37,7 @@ function id_value($directory) {
     }
 
     $name_file = array_slice($lista, 0, 7); // Selecciono los primero 7 caracteres en un Array
-    $new_value = intval(implode($name_file)); // Obtengo el valor numérico y le sumo 1
-    $new_value = $new_value + 1;
+    $new_value = intval(implode($name_file)) + 1; // Obtengo el valor numérico y le sumo 1
     $final_value = str_split(strval($new_value)); // Lo vuelvo una lista de strings
     $length = 7 - sizeof($final_value); // Le resto la longitud en chr al 7 y obtengo la cantidad de 0 necesaria
 
@@ -51,7 +50,7 @@ function id_value($directory) {
 
     closedir($dir); // Cierro la carpeta
 
-    return $new_value; // Devuelvo el ID
+    return $final_value; // Devuelvo el ID
 }
 
 ///////////////////////////////////////////////////
