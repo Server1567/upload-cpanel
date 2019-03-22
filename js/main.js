@@ -276,11 +276,6 @@ $(document).ready(function(){
 				});
 
 				return xmlhr;
-				// $("#cancel").on("click", function () {
-				// 	if (xmlhr && xmlhr.readyState != 4) {
-				// 		xmlhr.abort();
-				// 	}
-				// })
 			}
 
 			var longitud_archivo = bytesToSize(length); // Longitud exacta del archivo
