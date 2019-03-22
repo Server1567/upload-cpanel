@@ -45,12 +45,11 @@ function id_value($directory) {
         array_unshift($final_value, "0");
     }
 
-    $new_position = implode($final_value); // Obtengo el valor numerico definido
-    $temp_id_file = $new_position; // Declaro ese valor en una variable final y lo guardo.
+    $temp_id_file = implode($final_value); // Obtengo el valor numerico definido
 
     closedir($dir); // Cierro la carpeta
 
-    return $final_value; // Devuelvo el ID
+    return $temp_id_file; // Devuelvo el ID
 }
 
 ///////////////////////////////////////////////////
