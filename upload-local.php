@@ -87,6 +87,7 @@ if (!empty($_FILES)) {
         
         if (move_uploaded_file($source_path, $target_path)) {
             echo $id; // Manda el ID al FrontEnd(JS)
+            echo $source_path;
         }
 
     }
