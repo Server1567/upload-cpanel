@@ -68,35 +68,7 @@
 					    return xhr;
 					},
 					success: function (data) {
-						console.log("Nombre => " + data);
-
-						var formData = new FormData();
-						formData.append("file", files[1]);
-
-						$.ajax({  				// Petición para enviar archivos
-							url: "test.php",
-							type: "POST",
-							data: formData,     
-							contentType: false,
-							processData: false,
-							cache: false,
-							xhr: function() {
-							    var xhr = $.ajaxSettings.xhr();
-
-							    //Upload progress
-							    xhr.upload.addEventListener("progress", function(evt){
-							    	if (evt.lengthComputable) {
-								        var percentComplete = Math.round((evt.loaded * 100) / evt.total);
-								        //Do something with upload progress
-								        console.log(String(percentComplete) + "% - " + String(1));
-							    	}
-							    }, false);
-							    return xhr;
-							},
-							success: function (data) {
-								console.log("Nombre => " + data);
-							}
-						});
+						console.log(data);
 					}
 				});	
 			}

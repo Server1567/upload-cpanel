@@ -4,14 +4,15 @@
     $files = array();
 
     while ($current = readdir($dir)){ // ¿Lo está leyendo?
-        if( $current != "." && $current != "..") {  // Verifica si es un archivo, en caso verdadero: run X code
+        if($current != "." && $current != "..") {  // Verifica si es un archivo, en caso verdadero: run X code
             if(is_dir($path.$current)) {
                 echo $path.$current.'/';
                 echo "Esperemos nunca ver esto";
             }
             else { // Es un archivo
                 $files[] = $current;
-                $latest_position = end($files); // String
+                $key = array_search(max($files), $files); // Ejemplo Array (2 => 0000002.jpg). Output: 2
+                $latest_position = array_values($files)[$key];
             }
         }
         else {
