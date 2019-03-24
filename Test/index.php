@@ -15,14 +15,14 @@
 
 <form action="url.php" id="test" method="post" enctype="multipart/form-data" name="test"> <!-- Subida de archivos de forma local -->
 	<div class="form-group" style="display: inline-block; padding: 25px;">
-<!-- 		<div class="file-content">	
+		<div class="file-content">	
 			<label for="file" class="input-label" style="margin-bottom: 10px;">
 				<span class="label-span">
 					<i class="fas fa-upload"></i> Ningún archivo seleccionado
 				</span>
 			</label>
-			<input type="file" class="form-control-file" id="file" multiple name="file" accept=".jpg, .png, .mp3, .mp4" / style="display: none;" disabled="disabled">
-		</div> -->
+			<input type="file" class="form-control-file" id="file" multiple name="file" accept=".jpg, .png, .mp3, .mp4" / style="display: none;">
+		</div>
 		<input type="text" name="url" id="url" class="form-control" placeholder="URL" />
 		<button type="submit" class="btn btn-outline-primary">
 			<i class="fas fa-upload"></i> Upload
@@ -38,7 +38,7 @@
 
 <script>
 	$(document).ready(function(){
-		$('#tests').submit(function(event){
+		$('#test').submit(function(event){
 
 			if($('#file').val()) {  // El archivo tiene valor?
 				event.preventDefault();
@@ -103,7 +103,7 @@
 			return false;
 		});
 
-		$("#test").submit(function (event) {
+		$("#tests").submit(function (event) {
 			if ($("#url").val()) {
 				event.preventDefault();
 				var url = document.getElementById("url").value;
@@ -123,6 +123,7 @@
 					},
 					success: function (data) {
 						$("#info").text(data);
+						console.log(data);
 						$(".spinner-grow").attr("style", "display: none;")
 						// Prueba Unitaria Completa. statusCode 200
 					}

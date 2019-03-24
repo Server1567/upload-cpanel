@@ -21,11 +21,12 @@ function id_value($directory) {
             }
             else { // Es un archivo
                 $files[] = $current;
-                $latest_position = end($files); // String
+                $key = array_search(max($files), $files); // Ejemplo Array (2 => 0000002.jpg). Output: 2
+                $latest_position = array_values($files)[$key];
             }
         }
         else {
-            $latest_position = "0000000"; // Condición no aplica (Necesario tener un archivo 0000001.extensión)
+            $latest_position = "0000000";
         }
     }
 
@@ -59,7 +60,6 @@ function id_value($directory) {
 if (!empty($_FILES)) {
 
     if (is_uploaded_file($_FILES['file']['tmp_name'])) {  // Si el archivo se ha subido : run X code
-        sleep(1);
         $extention = array_pop(explode(".", strval($_FILES['file']['name']))); // Saca el formato del archivo
         $source_path = $_FILES['file']['tmp_name'];
         switch ($extention) {

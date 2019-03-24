@@ -1,13 +1,34 @@
 <?php 
 
-	if (!empty($_FILES)) {
+    $dir = opendir("../upload/jpg/");
+    $files = array();
 
-		if (is_uploaded_file($_FILES['file']['tmp_name'])) {
-			print_r($_FILES['file']['name'] . " - Tamaño => " . $_FILES['file']['size'] . " Bytes");
-		}
-	}
-	else {
-		echo "El archivo está vacío";
-	}
+    while ($current = readdir($dir)){ // ¿Lo está leyendo?
+        if( $current != "." && $current != "..") {  // Verifica si es un archivo, en caso verdadero: run X code
+            if(is_dir($path.$current)) {
+                echo $path.$current.'/';
+                echo "Esperemos nunca ver esto";
+            }
+            else { // Es un archivo
+                $files[] = $current;
+                $latest_position = end($files); // String
+            }
+        }
+        else {
+            $latest_position = "0000000";
+        }
+    }
+
+    echo $latest_position;
+
+	// if (!empty($_FILES)) {
+
+	// 	if (is_uploaded_file($_FILES['file']['tmp_name'])) {
+	// 		print_r($_FILES['file']['name'] . " - Tamaño => " . $_FILES['file']['size'] . " Bytes");
+	// 	}
+	// }
+	// else {
+	// 	echo "El archivo está vacío";
+	// }
 
 ?>

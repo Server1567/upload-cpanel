@@ -57,10 +57,6 @@ $(document).ready(function(){
 									$(".archivo:last-child").html("<div class='nombre'><span class='nombre-txt'>Nombre</span></div><div class='datos row'><span class='name-file'>"+archivos[2].name+"</span><span class='progress-file' style='color: #ffc107;'>"+percentageComplete+"%</span><span class='length-file'>"+length_uploaded+"/"+bytesToSize(archivos[2].size)+"</span></div>");
 								}
 							}
-							$("#cancel").on("click", function () {
-								xmlhr.abort();
-								xmlhr = null;
-							});
 						}, false);
 						return xhr;
 					},
@@ -193,10 +189,6 @@ $(document).ready(function(){
 						xhr.abort();
 						// Upload progress
 						xhr.upload.addEventListener("progress", function (e) {
-
-							$("#cancel").on("click", function() {
-								xmlr.abort();
-							});
 
 							if (e.lengthComputable) {
 								var percentageComplete = Math.round((e.loaded * 100) / e.total);
@@ -385,4 +377,5 @@ $(document).ready(function(){
 			event.preventDefault();
 		}
 	});
+	
 });
