@@ -22,7 +22,7 @@ function id_value($directory) {
             else { // Es un archivo
                 $files[] = $current;
                 $key = array_search(max($files), $files); // Ejemplo Array (2 => 0000002.jpg). Output: 2
-                echo $key;
+                echo max($files);
                 echo "\n";
                 $latest_position = array_values($files)[$key];
                 echo $latest_position;
