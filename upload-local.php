@@ -27,7 +27,7 @@ function id_value($directory) {
         }
         else {
             $latest_position = "0000000";
-            echo "Hola";
+            echo $current;
         }
     }
 
