@@ -16,6 +16,7 @@ if (!empty($_POST['url']) && isset($_POST['url'])) {
 			$id = $name . "." . strval($extention); // Me une los valores en el ID final del archivos
 			try {
 				file_put_contents('upload/jpg/' . $id, file_get_contents($url));
+				add_data($extention, $id, $name, $url);
 				echo "El archivo " . $id . " se ha enviado a la nube del servidor local. statusCode: 200";
 			} catch (Exception $e) {
 				echo "Al parecer hubo un error del tipo: " . strval($e);
@@ -26,6 +27,7 @@ if (!empty($_POST['url']) && isset($_POST['url'])) {
 			$id = $name . "." . strval($extention); // Me une los valores en el ID final del archivos
 			try {
 				file_put_contents('upload/png/' . $id, file_get_contents($url));
+				add_data($extention, $id, $name, $url);
 				echo "El archivo " . $id . " se ha enviado a la nube del servidor local. statusCode: 200";
 			} catch (Exception $e) {
 				echo "Al parecer hubo un error del tipo: " . strval($e);
@@ -36,6 +38,7 @@ if (!empty($_POST['url']) && isset($_POST['url'])) {
 			$id = $name . "." . strval($extention); // Me une los valores en el ID final del archivos
 			try {
 				file_put_contents('upload/mp3/' . $id, file_get_contents($url));
+				add_data($extention, $id, $name, $url);
 				echo "El archivo " . $id . " se ha enviado a la nube del servidor local. statusCode: 200";
 			} catch (Exception $e) {
 				echo "Al parecer hubo un error del tipo: " . strval($e);
@@ -46,6 +49,7 @@ if (!empty($_POST['url']) && isset($_POST['url'])) {
 			$id = $name . "." . strval($extention); // Me une los valores en el ID final del archivos
 			try {
 				file_put_contents('upload/mp4/' . $id, file_get_contents($url));
+				add_data($extention, $id, $name, $url);
 				echo "El archivo " . $id . " se ha enviado a la nube del servidor local. statusCode: 200";
 			} catch (Exception $e) {
 				echo "Al parecer hubo un error del tipo: " . strval($e);

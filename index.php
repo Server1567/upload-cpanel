@@ -31,7 +31,7 @@
 	  </div>
 	</div>
 	<div class="container">
-		<h2 align="center">Ajax File Upload Progress Bar using <strong>PHP</strong> & jQuery</h2>
+		<h2 align="center">AJAX File Upload Progress Bar using <strong>PHP</strong> & jQuery</h2>
 		<br><br><br>
 		<div class="row">
 			<div class="col-md-7"> <!-- Área de mostrar los archivos a subir -->
@@ -79,124 +79,88 @@
 				</div>
 			</div>
 			<div class="col-md-5"> <!-- Área de mostrar los archivos en el CPANEL -->
-				<h3>Files</h3>
+				<h3>Files</h3><br>
+				<div id="alerts-delete"></div>
+				<form action="delete-files.php" method="POST" name="delete" id="delete">
+					<div class="input-group">
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="jpg-3" name="SelectFormat3" class="custom-control-input" value="jpg-3">
+							<label class="custom-control-label" for="jpg-3">JPG</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="png-3" name="SelectFormat3" class="custom-control-input" value="png-3">
+							<label class="custom-control-label" for="png-3">PNG</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="mp3-3" name="SelectFormat3" class="custom-control-input" value="mp3-3">
+							<label class="custom-control-label" for="mp3-3">MP3</label>
+						</div>
+						<div class="custom-control custom-radio custom-control-inline">
+							<input type="radio" id="mp4-3" name="SelectFormat3" class="custom-control-input" value="mp4-3">
+							<label class="custom-control-label" for="mp4-3">MP4</label>
+						</div>
+					</div><br>
+					<div class="input-group">
+						<input type="text" class="form-control col-md-6" placeholder="ID Ej: 0000001" style="border-radius: 50px 0px 0px 50px; color: #212529; font-weight: bold;" id="delInput" required>
+						<button type="submit" class="btn btn-danger col-md-6"><i class="fas fa-trash-alt"></i> Eliminar</button>
+					</div>
+					<br>	
+				</form>
 				<div class="container" id="view"> <!-- Lista de archivos -->
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-8 col-sm-12">
-							<span><em>https://server1567.github.io/</em></span>
-						</div>
-						<div class="col-md-4 col-sm-12">
-							<span style="font-weight: bold;">0000652.mp3</span>
-						</div>
-					</div>
+					<!-- Acá se listarán todos los archivos de los datos JSON -->
 				</div>
 				<br>
-					<div class="input-group"> <!-- Búsqueda de archivos de acorde a un rango -->
-						<div class="input-group-prepend">
-							<span class="input-group-text">Rango a buscar</span>
+					<!-- Formulario de Recibida de datos JSON -->
+					<form action="list-view.php" method="POST" name="list-view-form" id="list-view-form">
+						<div class="input-group"> <!-- Búsqueda de archivos de acorde a un rango -->
+							<div class="input-group-prepend">
+								<span class="input-group-text">Rango a buscar</span>
+							</div>
+							<input type="text" placeholder="Desde" class="form-control" style="color: #212529; font-weight: bold;" name="desde" id="desde" required>
+							<input type="text" placeholder="Hasta" class="form-control" style="color: #212529; font-weight: bold;" name="hasta" id="hasta" required>
+						</div><br>
+						<div class="input-group" style="justify-content: center;">
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="jpg" name="SelectFormat" class="custom-control-input" value="jpg">
+								<label class="custom-control-label" for="jpg">JPG</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="png" name="SelectFormat" class="custom-control-input" value="png">
+								<label class="custom-control-label" for="png">PNG</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="mp3" name="SelectFormat" class="custom-control-input" value="mp3">
+								<label class="custom-control-label" for="mp3">MP3</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="mp4" name="SelectFormat" class="custom-control-input" value="mp4">
+								<label class="custom-control-label" for="mp4">MP4</label>
+							</div>
+						</div><br>
+						<div class="input-group">
+							<button type="submit" class="btn btn-primary col-md-12"><i class="fas fa-search"></i> Buscar</button>
 						</div>
-						<input type="text" placeholder="Desde" class="form-control" style="color: #212529; font-weight: bold;">
-						<input type="text" placeholder="Hasta" class="form-control" style="color: #212529; font-weight: bold;">
-						<button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-					</div>
+					</form>
 					<br>
-					<form action="#" method="POST" id="list_view" name="list_view">
+					<form action="list-view-all.php" method="POST" id="list-view-all" name="list-view-all">
+						<div class="input-group" style="justify-content: center;">
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="jpg-2" name="SelectFormat2" class="custom-control-input" value="jpg-2">
+								<label class="custom-control-label" for="jpg-2">JPG</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="png-2" name="SelectFormat2" class="custom-control-input" value="png-2">
+								<label class="custom-control-label" for="png-2">PNG</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="mp3-2" name="SelectFormat2" class="custom-control-input" value="mp3-2">
+								<label class="custom-control-label" for="mp3-2">MP3</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+								<input type="radio" id="mp4-2" name="SelectFormat2" class="custom-control-input" value="mp4-2">
+								<label class="custom-control-label" for="mp4-2">MP4</label>
+							</div>
+						</div><br>
 						<div class="input-group row" style="margin: 0px 5px;">
 							<input type="submit" value="Seleccionar todo" class="btn btn-primary col-lg-12 col-md-12" style="color: #212529; color: white;" />
 						</div>
@@ -207,6 +171,7 @@
 
 <div class="clearfix"></div>
 <script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/event.js"></script>
 <script src="js/main.js"></script>

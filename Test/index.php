@@ -38,7 +38,7 @@
 
 <script>
 	$(document).ready(function(){
-		$('#test').submit(function(event){
+		$('#tests').submit(function(event){
 
 			if($('#file').val()) {  // El archivo tiene valor?
 				event.preventDefault();
@@ -75,7 +75,7 @@
 			return false;
 		});
 
-		$("#tests").submit(function (event) {
+		$("#test").submit(function (event) {
 			if ($("#url").val()) {
 				event.preventDefault();
 				var url = document.getElementById("url").value;

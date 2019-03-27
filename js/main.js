@@ -377,5 +377,135 @@ $(document).ready(function(){
 			event.preventDefault();
 		}
 	});
+
+	$("#list-view-form").submit(function (event) {
+		if ($("#desde").val() && $("#hasta").val()) {
+			if ($("input[type=radio]:checked").val()) {
+				event.preventDefault();
+
+				var desde = document.getElementById("desde").value;
+				var hasta = document.getElementById("hasta").value;
+				var radio = $("input[type=radio]:checked").val();
+
+				var formData = new FormData();
+				formData.append("desde", desde);
+				formData.append("hasta", hasta);
+				formData.append("radio", radio);
+
+				$.ajax({
+					url: "list-view.php",
+					type: "POST",
+					data: formData,
+					contentType: false,
+					processData: false,
+					cache: false,
+					success: function (data) {
+						$("#view").html("");
+
+						if (data == false) {
+							$("#view").append("<div class='row'><div class='col-md-8 col-sm-12'><span><em style='color: #dc3545; font-weight: bold;'>Archivos no encontrados en el rango</em></span></div></div>");	
+						}
+						else {
+							var info = JSON.parse(data);
+							for( var key in info) {
+								var url = info[key][0];
+								var name = info[key][1];
+								console.log("URL => " + url + " Nombre => " + name);
+								$("#view").append("<div class='row'><div class='col-md-8 col-sm-12'><span><em>"+ url +"</em></span></div><div class='col-md-4 col-sm-12'><span style='font-weight: bold;'>"+ name +"</span></div></div>");
+							}
+						}
+					}
+				});
+			}
+			else {
+				event.preventDefault();
+				console.log("Al parecer te has olvidado de seleccionar el formato a listar información");
+			}
+		}
+		else {
+			event.preventDefault();
+		}
+	});
+
+	$("#list-view-all").submit(function (event) {
+		if ($("input[type=radio][name=SelectFormat2]:checked").val()) {
+			event.preventDefault();
+			var radio = $("input[type=radio][name=SelectFormat2]:checked").val();
+
+			var formData = new FormData();
+			formData.append("radio", radio);
+
+			$.ajax({
+				url: "list-view-all.php",
+				type: "POST",
+				data: formData,
+				contentType: false,
+				processData: false,
+				cache: false,
+				success: function (data) {
+					if (data == 404) {
+						console.log(data);
+						$("#view").html("<div class='row'><div class='col-md-8 col-sm-12'><span><em style='color: #dc3545; font-weight: bold;'>No hay archivos de este formato</em></span></div></div>");
+					}
+					else {
+						var info = JSON.parse(data);
+						$("#view").html("");
+
+						for( var key in info) {
+							var url = info[key][0];
+							var name = info[key][1];
+							$("#view").append("<div class='row'><div class='col-md-8 col-sm-12'><span><em>"+ url +"</em></span></div><div class='col-md-4 col-sm-12'><span style='font-weight: bold;'>"+ name +"</span></div></div>")
+						}
+					}
+				}
+			});
+		}
+		else {
+			event.preventDefault();
+			console.log("Al parecer te has olvidado de seleccionar el formato a listar información");
+		}
+	});
+
+	$("#delete").submit(function (event) {
+		if ($("input[type=radio][name=SelectFormat3]:checked").val()) {
+			event.preventDefault();
+
+			var radio = $("input[type=radio][name=SelectFormat3]:checked").val();
+			var delInput = document.getElementById("delInput").value;
+			var formData = new FormData();
+			formData.append("radio", radio);
+			formData.append("input", delInput)
+
+			$.ajax({
+				url: "delete-files.php",
+				type: "POST",
+				data: formData,
+				contentType: false,
+				processData: false,
+				cache: false,
+				success: function (data) {
+					if (data == 200) {
+						$("#alerts-delete").fadeIn(1000, function () {
+							$(this).html("<div class='alert alert-success' role='alert' style='position: absolute;'>El archivo ha sido eliminado con éxito</div><br><br><br>");
+							$(this).delay(2000).fadeOut(1000);
+						});
+					}
+					else if (data == 404) {
+						$("#alerts-delete").fadeIn(1000, function () {
+							$(this).html("<div class='alert alert-danger' role='alert' style='position: absolute;'>El archivo no se encuentra o ya ha sido eliminado</div><br><br><br>");
+							$(this).delay(2000).fadeOut(1000);
+						});
+					}
+				}
+			});
+		}
+		else {
+			event.preventDefault();
+			$("#alerts-delete").fadeIn(1000, function () {
+				$(this).html("<div class='alert alert-warning' role='alert' style='position: absolute;'>Te has olvidado de seleccionar el formato del archivo</div><br><br><br>");
+				$(this).delay(2500).fadeOut(1000);
+			});
+		}
+	});
 	
 });

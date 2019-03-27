@@ -1,6 +1,7 @@
 // Eventos de interacción
 
 $(document).ready(function(){
+
 	// Subir archivos de manera local
 	$("#fileInput").on("change", function(e){
 		

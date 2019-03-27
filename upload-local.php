@@ -53,6 +53,22 @@ function id_value($directory) {
     return $temp_id_file; // Devuelvo el ID
 }
 
+function add_data($type, $name, $id, $url) {
+    $json = fopen("JSON/" . $type . "/data_files.json", "rb");
+    $data = stream_get_contents($json);
+    fclose($json);
+
+    $data_processed = json_decode($data);
+    $new_data = '{"id":"'. $id .'", "Nombre":"'. $name .'", "URL": "'. $url .'"}';
+    $new_data_processed = json_decode($new_data);
+
+    array_push($data_processed, $new_data_processed);
+
+    $fichero = fopen("JSON/" . $type . "/data_files.json", "w+");
+    fwrite($fichero, json_encode($data_processed));
+    fclose($fichero);
+}
+
 ///////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 
@@ -67,21 +83,25 @@ if (!empty($_FILES)) {
                 $name = strval(id_value("upload/png/"));
                 $id = $name . "." . strval($extention); // Me une los valores en el ID final del archivos
                 $target_path = 'upload/png/' . $id;
+                add_data($extention, $id, $name, "LOCAL");
                 break;
             case 'jpg':
                 $name = strval(id_value("upload/jpg/"));
                 $id = $name . "." . strval($extention); // Me une los valores en el ID final del archivos
                 $target_path = 'upload/jpg/' . $id;
+                add_data($extention, $id, $name, "LOCAL");
                 break;
             case 'mp3':
                 $name = strval(id_value("upload/mp3/"));
                 $id = $name . "." . strval($extention); // Me une los valores en el ID final del archivos
                 $target_path = 'upload/mp3/' . $id;
+                add_data($extention, $id, $name, "LOCAL");
                 break;
             case 'mp4':
                 $name = strval(id_value("upload/mp4/"));
                 $id = $name . "." . strval($extention); // Me une los valores en el ID final del archivos
                 $target_path = 'upload/mp4/' . $id;
+                add_data($extention, $id, $name, "LOCAL");
                 break;
         }
         
