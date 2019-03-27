@@ -419,7 +419,10 @@ $(document).ready(function(){
 			}
 			else {
 				event.preventDefault();
-				console.log("Al parecer te has olvidado de seleccionar el formato a listar información");
+				$("#alerts-delete").fadeIn(1000, function () {
+					$(this).html("<div class='alert alert-warning' role='alert' style='position: absolute;'>Te has olvidado de seleccionar el formato del archivo</div><br><br><br>");
+					$(this).delay(2500).fadeOut(1000);
+				});
 			}
 		}
 		else {
@@ -462,7 +465,10 @@ $(document).ready(function(){
 		}
 		else {
 			event.preventDefault();
-			console.log("Al parecer te has olvidado de seleccionar el formato a listar información");
+			$("#alerts-delete").fadeIn(1000, function () {
+				$(this).html("<div class='alert alert-warning' role='alert' style='position: absolute;'>Te has olvidado de seleccionar el formato del archivo</div><br><br><br>");
+				$(this).delay(2500).fadeOut(1000);
+			});
 		}
 	});
 
