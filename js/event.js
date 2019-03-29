@@ -19,7 +19,6 @@ $(document).ready(function(){
 		}
 	});
 
-
 	//	Correción de bordes del botón Upload URL
 	$(".upload-url").mousedown(function(){
 		$(this).css({"box-shadow": "none", "border": "5px solid #196388", "background": "#196388"});
