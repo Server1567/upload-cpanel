@@ -4,7 +4,7 @@ include 'list-view-all.php';
 
 function del_files($id) { unlink($id); } // Elimino el archivo
 
-function del_json($ext, $input_id) {
+function del_json($ext, $input_id) {  // Elimino sus datos en el JSON
 	// Consigo los datos del JSON a través de una función declarada en 'list-view-all.php'
 	$json_files = get_data($ext);
 
@@ -36,18 +36,19 @@ function del_json($ext, $input_id) {
 			    fclose($fichero);
 			}
 		}
-	}  // Elimino sus datos en el JSON
+	}  
 }
 
-function delete($ext, $file, $input) {
+// Función para ejecutar las funciones de arriba 'del_files() & del_json()'
+
+function delete($ext, $input, $ruta, $format) {
+	$file = $ruta . strval($input) . $format;
 	if (file_exists($file)) {
 		del_files($file);
 		del_json($ext, intval($input));
 		echo 200;
 	}
-	else {
-		echo 404;
-	} // Función para ejecutar las funciones de arriba 'del_files() & del_json()'
+	else { echo 404; } 
 }
 
 if (!empty($_POST['radio']) && isset($_POST['radio'])) {
@@ -57,100 +58,25 @@ if (!empty($_POST['radio']) && isset($_POST['radio'])) {
 		$option = $_POST['radio'];
 
 		switch ($option) {
-			case 'jpg-3':
-				$file = "upload/jpg/" . strval($input) . ".jpg";
-				delete("jpg", $file, $input);
-				break;
-
-			case 'png-3':
-				$file = "upload/png/" . strval($input) . ".png";
-				delete("png", $file, $input);
-				break;
-
-			case 'mp3-3':
-				$file = "upload/mp3/" . strval($input) . ".mp3";
-				delete("mp3", $file, $input);
-				break;
-
-			case 'mp4-3':
-				$file = "upload/mp4/" . strval($input) . ".mp4";
-				delete("mp4", $file, $input);
-				break;
-
-			case 'gif-3':
-				$file = "upload/gif/" . strval($input) . ".gif";
-				delete("gif", $file, $input);
-				break;
-
-			case 'bmp-3':
-				$file = "upload/bmp/" . strval($input) . ".bmp";
-				delete("bmp", $file, $input);
-				break;
-
-			case 'pdf-3':
-				$file = "upload/pdf/" . strval($input) . ".pdf";
-				delete("pdf", $file, $input);
-				break;
-
-			case 'txt-3':
-				$file = "upload/txt/" . strval($input) . ".txt";
-				delete("txt", $file, $input);
-				break;
-				
-			case 'css-3':
-				$file = "upload/css/" . strval($input) . ".css";
-				delete("css", $file, $input);
-				break;
-				
-			case 'js-3':
-				$file = "upload/js/" . strval($input) . ".js";
-				delete("js", $file, $input);
-				break;
-				
-			case 'html-3':
-				$file = "upload/html/" . strval($input) . ".html";
-				delete("html", $file, $input);
-				break;
-				
-			case 'php-3':
-				$file = "upload/php/" . strval($input) . ".php";
-				delete("php", $file, $input);
-				break;
-				
-			case 'ogg-3':
-				$file = "upload/ogg/" . strval($input) . ".ogg";
-				delete("ogg", $file, $input);
-				break;
-				
-			case 'aac-3':
-				$file = "upload/aac/" . strval($input) . ".aac";
-				delete("aac", $file, $input);
-				break;
-				
-			case 'm4a-3':
-				$file = "upload/m4a/" . strval($input) . ".m4a";
-				delete("m4a", $file, $input);
-				break;
-				
-			case 'rar-3':
-				$file = "upload/rar/" . strval($input) . ".rar";
-				delete("rar", $file, $input);
-				break;
-				
-			case 'zip-3':
-				$file = "upload/zip/" . strval($input) . ".zip";
-				delete("zip", $file, $input);
-				break;
-				
-			case 'flv-3':
-				$file = "upload/flv/" . strval($input) . ".flv";
-				delete("flv", $file, $input);
-				break;
-				
-			case 'swf-3':
-				$file = "upload/swf/" . strval($input) . ".swf";
-				delete("swf", $file, $input);
-				break;
+			case 'jpg-3': delete("jpg", $input, "upload/jpg/", ".jpg"); break;
+			case 'png-3': delete("png", $input, "upload/png/", ".png"); break;
+			case 'mp3-3': delete("mp3", $input, "upload/mp3/", ".mp3"); break;
+			case 'mp4-3': delete("mp4", $input, "upload/mp4/", ".mp4"); break;
+			case 'gif-3': delete("gif", $input, "upload/gif/", ".gif"); break;
+			case 'bmp-3': delete("bmp", $input, "upload/bmp/", ".bmp"); break;
+			case 'pdf-3': delete("pdf", $input, "upload/pdf/", ".pdf"); break;
+			case 'txt-3': delete("txt", $input, "upload/txt/", ".txt"); break;
+			case 'css-3': delete("css", $input, "upload/css/", ".css"); break;
+			case 'js-3': delete("js", $input, "upload/js/", ".js"); break;
+			case 'html-3': delete("html", $input, "upload/html/", ".html"); break;
+			case 'php-3': delete("php", $input, "upload/php/", ".php"); break;
+			case 'ogg-3': delete("ogg", $input, "upload/ogg/", ".ogg"); break;
+			case 'aac-3': delete("aac", $input, "upload/aac/", ".aac"); break;
+			case 'm4a-3': delete("m4a", $input, "upload/m4a/", ".m4a"); break;
+			case 'rar-3': delete("rar", $input, "upload/rar/", ".rar"); break;
+			case 'zip-3': delete("zip", $input, "upload/zip/", ".zip"); break;
+			case 'flv-3': delete("flv", $input, "upload/flv/", ".flv"); break;
+			case 'swf-3': delete("swf", $input, "upload/swf/", ".swf"); break;
 		}
 	}
 }

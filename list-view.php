@@ -1,19 +1,12 @@
 <?php
 
-include 'upload-local.php';
-
-// Función para obtener los datos del archivo JSON
-function get_data($type) {
-    $json = fopen("JSON/" . $type . "/data_files.json", "rb");
-    $data = stream_get_contents($json);
-    fclose($json);
-
-    $data_processed = json_decode($data);
-    return $data_processed;
-}
+include 'list-view-all.php';
 
 // Función para mostrar los datos en el ListView
-function show_data($data, $desde, $hasta) {
+function show_data_all($ext, $desde, $hasta) {
+	// Consigo los datos del JSON a través de una función declarada en 'list-view-all.php'
+	$data = get_data($ext);
+	
 	$info = array();
 	settype($data, "array");
 	if (empty($data)) {
@@ -43,100 +36,25 @@ if (!empty($_POST['desde']) && isset($_POST['desde'])) {
 			$format = $_POST['radio'];
 
 			switch ($format) {
-				case 'jpg':
-					$data = get_data("jpg"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'png':
-					$data = get_data("png"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'mp3':
-					$data = get_data("mp3"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'mp4':
-					$data = get_data("mp4"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'gif':
-					$data = get_data("gif"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'bmp':
-					$data = get_data("bmp"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'pdf':
-					$data = get_data("pdf"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'txt':
-					$data = get_data("txt"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'css':
-					$data = get_data("css"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'js':
-					$data = get_data("js"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'html':
-					$data = get_data("html"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'php':
-					$data = get_data("php"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'ogg':
-					$data = get_data("ogg"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'aac':
-					$data = get_data("aac"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'm4a':
-					$data = get_data("m4a"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'rar':
-					$data = get_data("rar"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'zip':
-					$data = get_data("zip"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'flv':
-					$data = get_data("flv"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
-
-				case 'swf':
-					$data = get_data("swf"); // Consigue información de la Base de Datos JSON
-					show_data($data, $desde, $hasta);
-					break;
+				case 'jpg': show_data_all("jpg", $desde, $hasta); break;
+				case 'png': show_data_all("png", $desde, $hasta); break;
+				case 'mp3': show_data_all("mp3", $desde, $hasta); break;
+				case 'mp4': show_data_all("mp4", $desde, $hasta); break;
+				case 'gif': show_data_all("gif", $desde, $hasta); break;
+				case 'bmp': show_data_all("bmp", $desde, $hasta); break;
+				case 'pdf': show_data_all("pdf", $desde, $hasta); break;
+				case 'txt': show_data_all("txt", $desde, $hasta); break;
+				case 'css': show_data_all("css", $desde, $hasta); break;
+				case 'js': show_data_all("js", $desde, $hasta); break;
+				case 'html': show_data_all("html", $desde, $hasta); break;
+				case 'php': show_data_all("php", $desde, $hasta); break;
+				case 'ogg': show_data_all("ogg", $desde, $hasta); break;
+				case 'aac': show_data_all("aac", $desde, $hasta); break;
+				case 'm4a': show_data_all("m4a", $desde, $hasta); break;
+				case 'rar': show_data_all("rar", $desde, $hasta); break;
+				case 'zip': show_data_all("zip", $desde, $hasta); break;
+				case 'flv': show_data_all("flv", $desde, $hasta); break;
+				case 'swf': show_data_all("swf", $desde, $hasta); break;
 			}
 		}
 		else { echo "SelectFormat NULL. statusCode: 404"; }

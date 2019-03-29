@@ -722,8 +722,8 @@ $(document).ready(function(){
 			if ($("input[type=radio][name=SelectFormat]:checked").val()) {
 				event.preventDefault();
 
-				var desde = document.getElementById("desde").value;
-				var hasta = document.getElementById("hasta").value;
+				var desde = $("#desde").val();
+				var hasta = $("#hasta").val();
 				var radio = $("input[type=radio]:checked").val();
 
 				var formData = new FormData();

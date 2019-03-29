@@ -1,1 +1,17 @@
-[{"id":"0000001","Nombre":"0000001.pdf","URL":"LOCAL"},{"id":"0000002","Nombre":"0000002.pdf","URL":"LOCAL"},{"id":"0000003","Nombre":"0000003.pdf","URL":"LOCAL"},{"id":"0000004","Nombre":"0000004.pdf","URL":"LOCAL"},{"id":"0000005","Nombre":"0000005.pdf","URL":"LOCAL"},{"id":"0000006","Nombre":"0000006.pdf","URL":"LOCAL"}]
+{
+    "1": {
+        "id": "0000002",
+        "Nombre": "0000002.pdf",
+        "URL": "LOCAL"
+    },
+    "2": {
+        "id": "0000003",
+        "Nombre": "0000003.pdf",
+        "URL": "LOCAL"
+    },
+    "5": {
+        "id": "0000007",
+        "Nombre": "0000007.pdf",
+        "URL": "http://sites.unapec.edu.do/carreras/pensum/all/ISO-105web.pdf"
+    }
+}

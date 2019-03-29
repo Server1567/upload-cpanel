@@ -1,7 +1,5 @@
 <?php
 
-include 'upload-local.php';
-
 // Función para obtener los datos del archivo JSON
 function get_data($type) {
     $json = fopen("JSON/" . $type . "/data_files.json", "rb");
@@ -13,7 +11,8 @@ function get_data($type) {
 }
 
 // Función para mostrar los datos en el ListView
-function show_data($data) {
+function show_data($ext) {
+	$data = get_data($ext); // Consigue información de la Base de Datos JSON
 	$info = array();
 	settype($data, "array");
 	if (empty($data)) {
@@ -36,102 +35,26 @@ if (!empty($_POST['radio']) && isset($_POST['radio'])) {
 	$format = $_POST['radio'];
 
 	switch ($format) {
-		case 'jpg-2':
-			$data = get_data("jpg"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'png-2':
-			$data = get_data("png"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'mp3-2':
-			$data = get_data("mp3"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'mp4-2':
-			$data = get_data("mp4"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'gif-2':
-			$data = get_data("gif"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'bmp-2':
-			$data = get_data("bmp"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'pdf-2':
-			$data = get_data("pdf"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'txt-2':
-			$data = get_data("txt"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'css-2':
-			$data = get_data("css"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'js-2':
-			$data = get_data("js"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'html-2':
-			$data = get_data("html"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'php-2':
-			$data = get_data("php"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'ogg-2':
-			$data = get_data("ogg"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'aac-2':
-			$data = get_data("aac"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'm4a-2':
-			$data = get_data("m4a"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'rar-2':
-			$data = get_data("rar"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'zip-2':
-			$data = get_data("zip"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'flv-2':
-			$data = get_data("flv"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
-
-		case 'swf-2':
-			$data = get_data("swf"); // Consigue información de la Base de Datos JSON
-			show_data($data);
-			break;
+		case 'jpg-2': show_data("jpg"); break;
+		case 'png-2': show_data("png"); break;
+		case 'mp3-2': show_data("mp3"); break;
+		case 'mp4-2': show_data("mp4"); break;
+		case 'gif-2': show_data("gif"); break;
+		case 'bmp-2': show_data("bmp"); break;
+		case 'pdf-2': show_data("pdf"); break;
+		case 'txt-2': show_data("txt"); break;
+		case 'css-2': show_data("css"); break;
+		case 'js-2': show_data("js"); break;
+		case 'html-2': show_data("html"); break;
+		case 'php-2': show_data("php"); break;
+		case 'ogg-2': show_data("ogg"); break;
+		case 'aac-2': show_data("aac"); break;
+		case 'm4a-2': show_data("m4a"); break;
+		case 'rar-2': show_data("rar"); break;
+		case 'zip-2': show_data("zip"); break;
+		case 'flv-2': show_data("flv"); break;
+		case 'swf-2': show_data("swf"); break;
 	}
-
 }
 else { echo "SelectFormat NULL. statusCode: 404"; }
 

@@ -25,69 +25,30 @@ if (!empty($_POST['url']) && isset($_POST['url'])) {
 	$extention = array_pop(explode(".", $name_file)); // Saca el formato del archivo
 
 	switch ($extention) {
-		case 'jpg':
-			upload_url('upload/jpg/', 'jpg', $url);
-			break;
-		case 'png':
-			upload_url('upload/png/', 'png', $url);
-			break;
-		case 'mp3':
-			upload_url('upload/mp3/', 'mp3', $url);
-			break;
-		case 'mp4':
-			upload_url('upload/mp4/', 'mp4', $url);
-			break;
-		case 'gif':
-			upload_url('upload/gif/', 'gif', $url);
-			break;
-		case 'bmp':
-			upload_url('upload/bmp/', 'bmp', $url);
-			break;
-		case 'pdf':
-			upload_url('upload/pdf/', 'pdf', $url);
-			break;
-		case 'txt':
-			upload_url('upload/txt/', 'txt', $url);
-			break;
-		case 'css':
-			upload_url('upload/css/', 'css', $url);
-			break;
-		case 'js':
-			upload_url('upload/js/', 'js', $url);
-			break;
-		case 'html':
-			upload_url('upload/html/', 'html', $url);
-			break;
-		case 'php':
-			upload_url('upload/php/', 'php', $url);
-			break;
-		case 'ogg':
-			upload_url('upload/ogg/', 'ogg', $url);
-			break;
-		case 'aac':
-			upload_url('upload/aac/', 'aac', $url);
-			break;
-		case 'm4a':
-			upload_url('upload/m4a/', 'm4a', $url);
-			break;
-		case 'rar':
-			upload_url('upload/rar/', 'rar', $url);
-			break;
-		case 'zip':
-			upload_url('upload/zip/', 'zip', $url);
-			break;
-		case 'flv':
-			upload_url('upload/flv/', 'flv', $url);
-			break;
-		case 'swf':
-			upload_url('upload/swf/', 'swf', $url);
-			break;
-		default: // Archivos que no están en la lista de formatos admitidos
-			echo "El archivo tiene un formato que no coincide con nuestra Base de Datos";
-			break;
+		case 'jpg': upload_url('upload/jpg/', 'jpg', $url); break;
+		case 'png': upload_url('upload/png/', 'png', $url); break;
+		case 'mp3': upload_url('upload/mp3/', 'mp3', $url); break;
+		case 'mp4': upload_url('upload/mp4/', 'mp4', $url); break;
+		case 'gif': upload_url('upload/gif/', 'gif', $url); break;
+		case 'bmp': upload_url('upload/bmp/', 'bmp', $url); break;
+		case 'pdf': upload_url('upload/pdf/', 'pdf', $url); break;
+		case 'txt': upload_url('upload/txt/', 'txt', $url); break;
+		case 'css': upload_url('upload/css/', 'css', $url); break;
+		case 'js': upload_url('upload/js/', 'js', $url); break;
+		case 'html': upload_url('upload/html/', 'html', $url); break;
+		case 'php': upload_url('upload/php/', 'php', $url); break;
+		case 'ogg': upload_url('upload/ogg/', 'ogg', $url); break;
+		case 'aac': upload_url('upload/aac/', 'aac', $url); break;
+		case 'm4a': upload_url('upload/m4a/', 'm4a', $url); break;
+		case 'rar': upload_url('upload/rar/', 'rar', $url); break;
+		case 'zip': upload_url('upload/zip/', 'zip', $url); break;
+		case 'flv': upload_url('upload/flv/', 'flv', $url); break;
+		case 'swf': upload_url('upload/swf/', 'swf', $url); break;
+
+		// Archivos que no están en la lista de formatos admitidos
+		default: echo "El archivo tiene un formato que no coincide con nuestra Base de Datos"; break;
 	}
 }
-
 else { echo "No hay información en el campo URL"; }
 
 ?>
